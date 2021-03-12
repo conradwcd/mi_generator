@@ -1,0 +1,51 @@
+
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.selected {
+  border: 2px solid #e21c79;
+}
+
+span {padding: 5px 5px 5px 5px;}
+
+header {
+  color: white;
+  background-color: black;
+  height: 50px;
+  width: 100vw;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+nav > span{
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  color: white;
+  background-color: #e21c79;
+  border: 0;
+  cursor: pointer;
+}
+
+div {
+  margin-left: 20px;
+}
+
+.input {
+  width: 250px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+.output {
+  margin-top: 20px;
+}
