@@ -476,7 +476,7 @@ document.getElementById("fourCol").classList.remove("selected");
 document.getElementById("fourCTA").classList.remove("selected");
 };
 
-function tdFourCTA(){
+function tdQuadCTA(){
 miTOD = false;
 tdSingle = false;
 tdDouble = false;
