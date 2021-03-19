@@ -8,6 +8,7 @@ var tdDouble = false;
 var tdDoubleMobile = false;
 var fourProdScrape = false;
 var fourColRow = false;
+var tdFourCTA = false;
 
 
 function generateMI() {
@@ -22,7 +23,6 @@ function generateMI() {
 
   // get legal
   var legal = miList[miList.length-1];
-  //console.log(legal);
   miList.pop();
 
   // set links for the 10 CTAs
@@ -143,6 +143,7 @@ function generateSingleTd(){
 
   var string = document.getElementById("unformatted").value;
   var miList = string.match(urlRegex);
+  console.log(miList)
 
 for (i = 0; i < miList.length; i+=2){
     var singleTD = `  <tr>
@@ -154,6 +155,7 @@ for (i = 0; i < miList.length; i+=2){
 
   assets = assets.join(`
 `);
+
 
 document.getElementById("formatted").innerHTML = assets;
 
@@ -482,13 +484,13 @@ fourProdScrape = false;
 fourColRow = false;
 tdDoubleMobile = false;
 tdFourCTA = true;
+document.getElementById("fourCTA").classList.toggle("selected");
 document.getElementById("doublemobile").classList.remove("selected");
 document.getElementById("double").classList.remove("selected");
 document.getElementById("tod").classList.remove("selected");
 document.getElementById("single").classList.remove("selected");
 document.getElementById("four").classList.remove("selected");
 document.getElementById("fourCol").classList.remove("selected");
-document.getElementById("fourCTA").classList.toggle("selected");
 };
 
 function miMaker(){
