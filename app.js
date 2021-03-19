@@ -500,7 +500,6 @@ function miMaker(){
   } else if (fourProdScrape === true){
     generateProductScrapes();
   } else if (fourColRow === true){
-    alert('clicked');
     generateFourColumnRows();
   } else if (tdDouble === true){
     generateDoubleTDs();
