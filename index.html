@@ -11,13 +11,29 @@
 <body>
 <header>
   <nav>
+    <form action="">
+      <label for="row_type">Choose what type of row to build: </label>
+      <select name="row_type" id="row_type" onmousedown="this.value='';" onchange="">
+        <option value="tod">MI TOD Generator</option>
+        <option value="single">1 TD</option>
+        <option value="double">2 TD</option>
+        <option value="doublemobile">2 TD (Mobile)</option>
+        <option value="threeCol">3 Column Single Row</option>
+        <option value="fourCol">4 Column Single Row</option>
+        <option value="fourCTA">4 CTAs Row (Mobile)</option>
+        <option value="four">4 Product Scrape</option>
+      </select>
+    </form>
+<!--
     <span id="tod" class="selected" onclick="tod()">MI TOD Generator</span>
     <span id="single" onclick="tdOne()">1 TD</span>
     <span id="double" onclick="tdTwo()">2 TD</span>
     <span id="doublemobile" onclick="tdTwoMobile()">2 TD (Mobile)</span>
     <span id="fourCol" onclick="tdFourCol()">4 Column Single Row</span>
-    <span id="fourCTA" onclick="tdQuadCTA()">4 CTAs Row</span>
+    <span id="threeCol" onclick="tdTripleCol()">3 Column Single Row</span>
+    <span id="fourCTA" onclick="tdQuadCTA()">4 CTAs Row (Mobile)</span>
     <span id="four" onclick="tdFour()">4 Product Scrape</span>
+-->
   </nav>
 </header>
 

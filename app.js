@@ -8,6 +8,7 @@ var tdDouble = false;
 var tdDoubleMobile = false;
 var fourProdScrape = false;
 var fourColRow = false;
+var tdThreeCol = false;
 var tdFourCTA = false;
 
 
@@ -21,9 +22,6 @@ function generateMI() {
   var miList = string.match(urlRegex);
   miList.pop();
 
-  // get legal
-  var legal = miList[miList.length-1];
-  miList.pop();
 
   // set links for the 10 CTAs
   // i realize now that i probably could have used a for loop here lol
@@ -48,18 +46,9 @@ function generateMI() {
   var ctaTenA = (miList.length-2);
   var ctaTenB = (miList.length-1);
 
+  //console.log("miList: " + miList.length);
+
   // set up non-CTA MI links
-  for (i = 0; i < ctaOneA; i+=2){
-    var singleMI = `  <tr>
-    <td valign="top"><a href="${miList[i]}" target="_blank" alias="%%=v(@alias)=%%"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="640" /></a></td>
-  </tr>`;
-    assets.push(singleMI);
-
-  };
-
-  assets = assets.join(`
-`);
-
 // template for 10 CTAs
 var miGenerated = `<!-- %%[ /*  Begin 2 320px widget  */ ]%% -->
   <tr style="line-height: 1;">
@@ -326,6 +315,46 @@ document.getElementById("unformatted").value = "";
 };
 
 
+function generateThreeColumnRows() {
+  //reset
+  document.getElementById("formatted").innerHTML = "";
+  var assets = [];
+
+  var string = document.getElementById("unformatted").value;
+  var miList = string.match(urlRegex);
+
+for (i = 0; i < miList.length; i+=6){
+    var scrapeColRow = `  <tr style="line-height: 1;">
+    <td valign="top">
+      <table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
+        <tr>
+          <th class="block" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td valign="top"><a href="${miList[i]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="213" /></a></td>
+                <td valign="top"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="213" /></a></td>
+                <td valign="top"><a href="${miList[i+4]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+5]}" class="photo" width="214" /></a></td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>`;
+
+    assets.push(scrapeColRow);
+  };
+
+  assets = assets.join(`
+`);
+
+document.getElementById("formatted").innerHTML = assets;
+
+//clean input box
+document.getElementById("unformatted").value = "";
+};
+
+
 function generateFourCTARow() {
   //reset
   document.getElementById("formatted").innerHTML = "";
@@ -382,6 +411,8 @@ fourProdScrape = false;
 fourColRow = false;
 tdDoubleMobile = false;
 tdFourCTA = false;
+tdThreeCol = false;
+document.getElementById("threeCol").classList.remove("selected");
 document.getElementById("tod").classList.toggle("selected");
 document.getElementById("single").classList.remove("selected");
 document.getElementById("double").classList.remove("selected");
@@ -399,6 +430,8 @@ fourProdScrape = false;
 fourColRow = false;
 tdDoubleMobile = false;
 tdFourCTA = false;
+tdThreeCol = false;
+document.getElementById("threeCol").classList.remove("selected");
 document.getElementById("single").classList.toggle("selected");
 document.getElementById("tod").classList.remove("selected");
 document.getElementById("double").classList.remove("selected");
@@ -416,6 +449,8 @@ fourProdScrape = false;
 fourColRow = false;
 tdDoubleMobile = false;
 tdFourCTA = false;
+tdThreeCol = false;
+document.getElementById("threeCol").classList.remove("selected");
 document.getElementById("double").classList.toggle("selected");
 document.getElementById("tod").classList.remove("selected");
 document.getElementById("single").classList.remove("selected");
@@ -433,6 +468,8 @@ fourProdScrape = true;
 fourColRow = false;
 tdDoubleMobile = false;
 tdFourCTA = false;
+tdThreeCol = false;
+document.getElementById("threeCol").classList.remove("selected");
 document.getElementById("four").classList.toggle("selected");
 document.getElementById("single").classList.remove("selected");
 document.getElementById("tod").classList.remove("selected");
@@ -450,6 +487,8 @@ fourProdScrape = false;
 fourColRow = true;
 tdDoubleMobile = false;
 tdFourCTA = false;
+tdThreeCol = false;
+document.getElementById("threeCol").classList.remove("selected");
 document.getElementById("fourCol").classList.toggle("selected");
 document.getElementById("four").classList.remove("selected");
 document.getElementById("single").classList.remove("selected");
@@ -467,6 +506,8 @@ fourProdScrape = false;
 fourColRow = false;
 tdDoubleMobile = true;
 tdFourCTA = false;
+tdThreeCol = false;
+document.getElementById("threeCol").classList.remove("selected");
 document.getElementById("doublemobile").classList.toggle("selected");
 document.getElementById("double").classList.remove("selected");
 document.getElementById("tod").classList.remove("selected");
@@ -484,6 +525,8 @@ fourProdScrape = false;
 fourColRow = false;
 tdDoubleMobile = false;
 tdFourCTA = true;
+tdThreeCol = false;
+document.getElementById("threeCol").classList.remove("selected");
 document.getElementById("fourCTA").classList.toggle("selected");
 document.getElementById("doublemobile").classList.remove("selected");
 document.getElementById("double").classList.remove("selected");
@@ -492,6 +535,26 @@ document.getElementById("single").classList.remove("selected");
 document.getElementById("four").classList.remove("selected");
 document.getElementById("fourCol").classList.remove("selected");
 };
+
+function tdTripleCol(){
+miTOD = false;
+tdSingle = false;
+tdDouble = false;
+fourProdScrape = false;
+fourColRow = false;
+tdDoubleMobile = false;
+tdFourCTA = false;
+tdThreeCol = true;
+document.getElementById("threeCol").classList.toggle("selected");
+document.getElementById("fourCol").classList.remove("selected");
+document.getElementById("four").classList.remove("selected");
+document.getElementById("single").classList.remove("selected");
+document.getElementById("tod").classList.remove("selected");
+document.getElementById("double").classList.remove("selected");
+document.getElementById("doublemobile").classList.remove("selected");
+document.getElementById("fourCTA").classList.remove("selected");
+};
+
 
 function miMaker(){
   assets = [];
@@ -509,6 +572,8 @@ function miMaker(){
     generateDoubleMobileTDs();
   } else if (tdFourCTA === true){
     generateFourCTARow();
+  } else if (tdThreeCol === true){
+    generateThreeColumnRows();
   };
 };
 
