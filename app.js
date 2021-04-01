@@ -166,7 +166,7 @@ function generateSingleTd(){
 
   var string = document.getElementById("unformatted").value;
   var miList = string.match(urlRegex);
-  console.log(miList)
+  // console.log(miList)
 
 for (i = 0; i < miList.length; i+=2){
     var singleTD = `  <tr>
@@ -201,7 +201,7 @@ for (i = 0; i < miList.length; i+=8){
       <table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
         <tr>
           <th class="block" valign="top">
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" align="center">
               <tr>
                 <td valign="top"><a href="${miList[i]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="168" /></a></td>
                 <td valign="top"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="152" /></a></td>
@@ -409,7 +409,7 @@ for (i = 0; i < miList.length; i+=8){
       <table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
         <tr>
           <th class="block" valign="top">
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" align="center">
               <tr>
                 <td valign="top" style="padding-top:4px;"><a href="${miList[i]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="160" /></a></td>
                 <td valign="top" style="padding-top:4px;"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="160" /></a></td>
@@ -456,7 +456,7 @@ for (i = 0; i < miList.length; i+=8){
       <table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
         <tr>
           <th class="block" valign="top">
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" align="center">
               <tr>
                 <td valign="top"><a href="${miList[i]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="160" /></a></td>
                 <td valign="top"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="160" /></a></td>
