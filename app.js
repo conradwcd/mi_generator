@@ -155,6 +155,7 @@ document.getElementById("formatted").innerHTML = todTemplate;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 
@@ -183,6 +184,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 function generateProductScrapes() {
@@ -229,6 +231,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 function generateDoubleTDs() {
@@ -261,6 +264,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 function generateDoubleMobileTDs() {
@@ -305,6 +309,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 function generateFourColumnRows() {
@@ -345,6 +350,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 
@@ -385,6 +391,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 
@@ -432,6 +439,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 function generateVisNavRow() {
@@ -478,6 +486,7 @@ document.getElementById("formatted").innerHTML = assets;
 
 //clean input box
 document.getElementById("unformatted").value = "";
+copySelect();
 };
 
 
