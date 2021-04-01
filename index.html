@@ -5,32 +5,43 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 
   <script type="text/javascript" src="app.js"></script>
-<title>MI Generator</title>
+<title>MI to HTML Generator</title>
 </head>
 
 <body>
 <header>
   <nav>
-    <span id="tod" class="selected" onclick="tod()">MI TOD Generator</span>
-    <span id="single" onclick="tdOne()">1 TD</span>
-    <span id="double" onclick="tdTwo()">2 TD</span>
-    <span id="doublemobile" onclick="tdTwoMobile()">2 TD (Mobile)</span>
-    <span id="fourCol" onclick="tdFourCol()">4 Column Single Row</span>
-    <span id="threeCol" onclick="tdTripleCol()">3 Column Single Row</span>
-    <span id="fourCTA" onclick="tdQuadCTA()">4 CTAs Row (Mobile)</span>
-    <span id="four" onclick="tdFour()">4 Product Scrape</span>
+    <span>MI to HTML GENERATOR</span>
   </nav>
 </header>
 
 <div>
-<input class="input" type="text" id="unformatted" placeholder="Paste MI here.">
-  <button class="button" type="button" onclick="miMaker()"><strong>generate</strong></button>
+<button type="button" onclick="location.reload();" class="myButton">Start Over</button>
+<br /><br />
+<input class="input" type="text" id="unformatted" placeholder="Paste MI here." class="css-input">
+  <br/><br/>
+  <form action="">
+    <label for="row_type">Choose the type of row you need to build: </label>
+    <select name="row_type" id="row_type" onchange="miMakerSelect(value);" class="myButton">
+      <option value="">Select</option>
+      <option value="tod">MI TOD Generator</option>
+      <option value="tdOne">1 TD</option>
+      <option value="tdTwo">2 TD</option>
+      <option value="tdTwoMobile">2 TD (Mobile)</option>
+      <option value="tdTripleCol">3 Column Single Row</option>
+      <option value="tdFourCol">4 Column Single Row</option>
+      <option value="tdQuadCTA">4 CTAs Row (Mobile)</option>
+      <option value="tdQuadVisNav">4 Column VisNav Row (Mobile)</option>
+      <option value="tdFour">4 Product Scrape</option>
+    </select>
+  </form>
 </div>
 
 <div class="output">
-  <textarea rows="15" cols="70" id="formatted"></textarea>
+  <textarea rows="15" cols="80" id="formatted"></textarea>
+  <br /><br />
+  <button type="button" onclick="copySelect();" class="myButton">Copy HTML</button>
 </div>
-
 
 </body>
 

@@ -2,15 +2,36 @@ var string = ``;
 var urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&#\/%?=~_|!:,.;()@]*[-A-Z0-9+&@#\/%=~_|])/ig;
 var assets, legal
 
-var miTOD = true;
-var tdSingle = false;
-var tdDouble = false;
-var tdDoubleMobile = false;
-var fourProdScrape = false;
-var fourColRow = false;
-var tdThreeCol = false;
-var tdFourCTA = false;
+function miMakerSelect(value){
+  assets = [];
+  console.log(value);
+  if (value === "tod"){
+    generateMI();
+  } else if (value === "tdOne"){
+    generateSingleTd();
+  } else if (value === "tdFour"){
+    generateProductScrapes();
+  } else if (value === "tdFourCol"){
+    generateFourColumnRows();
+  } else if (value === "tdTwo"){
+    generateDoubleTDs();
+  } else if (value === "tdTwoMobile"){
+    generateDoubleMobileTDs();
+  } else if (value === "tdQuadCTA"){
+    generateFourCTARow();
+  } else if (value === "tdTripleCol"){
+    generateThreeColumnRows();
+  } else if (value === "tdQuadVisNav"){
+    generateVisNavRow();
+  }
+};
 
+function copySelect() {
+  var copyText = document.getElementById("formatted");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
 
 function generateMI() {
   // reset
@@ -22,6 +43,9 @@ function generateMI() {
   var miList = string.match(urlRegex);
   miList.pop();
 
+  // get legal
+  var legal = miList[miList.length-1];
+  miList.pop();
 
   // set links for the 10 CTAs
   // i realize now that i probably could have used a for loop here lol
@@ -46,9 +70,18 @@ function generateMI() {
   var ctaTenA = (miList.length-2);
   var ctaTenB = (miList.length-1);
 
-  //console.log("miList: " + miList.length);
-
   // set up non-CTA MI links
+  for (i = 0; i < ctaOneA; i+=2){
+    var singleMI = `  <tr>
+    <td valign="top"><a href="${miList[i]}" target="_blank" alias="%%=v(@alias)=%%"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="640" /></a></td>
+  </tr>`;
+    assets.push(singleMI);
+
+  };
+
+  assets = assets.join(`
+`);
+
 // template for 10 CTAs
 var miGenerated = `<!-- %%[ /*  Begin 2 320px widget  */ ]%% -->
   <tr style="line-height: 1;">
@@ -207,7 +240,7 @@ function generateDoubleTDs() {
   var miList = string.match(urlRegex);
 
 for (i = 0; i < miList.length; i+=4){
-    var doubleTDs = ` <tr style="line-height: 1;">
+    var doubleTDs = `  <tr style="line-height: 1;">
     <td valign="top">
       <table border="0" cellpadding="0" cellspacing="0" width="640" style="min-width: 640;" class="wrapper">
         <tr style="line-height: 1;">
@@ -401,180 +434,51 @@ document.getElementById("formatted").innerHTML = assets;
 document.getElementById("unformatted").value = "";
 };
 
+function generateVisNavRow() {
+  //reset
+  document.getElementById("formatted").innerHTML = "";
+  var assets = [];
 
+  var string = document.getElementById("unformatted").value;
+  var miList = string.match(urlRegex);
 
-function tod(){
-miTOD = true;
-tdSingle = false;
-tdDouble = false;
-fourProdScrape = false;
-fourColRow = false;
-tdDoubleMobile = false;
-tdFourCTA = false;
-tdThreeCol = false;
-document.getElementById("threeCol").classList.remove("selected");
-document.getElementById("tod").classList.toggle("selected");
-document.getElementById("single").classList.remove("selected");
-document.getElementById("double").classList.remove("selected");
-document.getElementById("four").classList.remove("selected");
-document.getElementById("doublemobile").classList.remove("selected");
-document.getElementById("fourCol").classList.remove("selected");
-document.getElementById("fourCTA").classList.remove("selected");
-};
+for (i = 0; i < miList.length; i+=8){
+    var scrape4CTARow = `  <tr style="line-height: 1;">
+    <td valign="top">
+      <table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
+        <tr>
+          <th class="block" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td valign="top"><a href="${miList[i]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="160" /></a></td>
+                <td valign="top"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="160" /></a></td>
+              </tr>
+            </table>
+          </th>
+          <th class="block" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="center">
+              <tr>
+                <td valign="top"><a href="${miList[i+4]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+5]}" class="photo" width="160" /></a></td>
+                <td valign="top"><a href="${miList[i+6]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+7]}" class="photo" width="160" /></a></td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>`;
 
-function tdOne(){
-miTOD = false;
-tdSingle = true;
-tdDouble = false;
-fourProdScrape = false;
-fourColRow = false;
-tdDoubleMobile = false;
-tdFourCTA = false;
-tdThreeCol = false;
-document.getElementById("threeCol").classList.remove("selected");
-document.getElementById("single").classList.toggle("selected");
-document.getElementById("tod").classList.remove("selected");
-document.getElementById("double").classList.remove("selected");
-document.getElementById("four").classList.remove("selected");
-document.getElementById("doublemobile").classList.remove("selected");
-document.getElementById("fourCol").classList.remove("selected");
-document.getElementById("fourCTA").classList.remove("selected");
-};
-
-function tdTwo(){
-miTOD = false;
-tdSingle = false;
-tdDouble = true;
-fourProdScrape = false;
-fourColRow = false;
-tdDoubleMobile = false;
-tdFourCTA = false;
-tdThreeCol = false;
-document.getElementById("threeCol").classList.remove("selected");
-document.getElementById("double").classList.toggle("selected");
-document.getElementById("tod").classList.remove("selected");
-document.getElementById("single").classList.remove("selected");
-document.getElementById("four").classList.remove("selected");
-document.getElementById("doublemobile").classList.remove("selected");
-document.getElementById("fourCol").classList.remove("selected");
-document.getElementById("fourCTA").classList.remove("selected");
-};
-
-function tdFour(){
-miTOD = false;
-tdSingle = false;
-tdDouble = false;
-fourProdScrape = true;
-fourColRow = false;
-tdDoubleMobile = false;
-tdFourCTA = false;
-tdThreeCol = false;
-document.getElementById("threeCol").classList.remove("selected");
-document.getElementById("four").classList.toggle("selected");
-document.getElementById("single").classList.remove("selected");
-document.getElementById("tod").classList.remove("selected");
-document.getElementById("double").classList.remove("selected");
-document.getElementById("doublemobile").classList.remove("selected");
-document.getElementById("fourCol").classList.remove("selected");
-document.getElementById("fourCTA").classList.remove("selected");
-};
-
-function tdFourCol(){
-miTOD = false;
-tdSingle = false;
-tdDouble = false;
-fourProdScrape = false;
-fourColRow = true;
-tdDoubleMobile = false;
-tdFourCTA = false;
-tdThreeCol = false;
-document.getElementById("threeCol").classList.remove("selected");
-document.getElementById("fourCol").classList.toggle("selected");
-document.getElementById("four").classList.remove("selected");
-document.getElementById("single").classList.remove("selected");
-document.getElementById("tod").classList.remove("selected");
-document.getElementById("double").classList.remove("selected");
-document.getElementById("doublemobile").classList.remove("selected");
-document.getElementById("fourCTA").classList.remove("selected");
-};
-
-function tdTwoMobile(){
-miTOD = false;
-tdSingle = false;
-tdDouble = false;
-fourProdScrape = false;
-fourColRow = false;
-tdDoubleMobile = true;
-tdFourCTA = false;
-tdThreeCol = false;
-document.getElementById("threeCol").classList.remove("selected");
-document.getElementById("doublemobile").classList.toggle("selected");
-document.getElementById("double").classList.remove("selected");
-document.getElementById("tod").classList.remove("selected");
-document.getElementById("single").classList.remove("selected");
-document.getElementById("four").classList.remove("selected");
-document.getElementById("fourCol").classList.remove("selected");
-document.getElementById("fourCTA").classList.remove("selected");
-};
-
-function tdQuadCTA(){
-miTOD = false;
-tdSingle = false;
-tdDouble = false;
-fourProdScrape = false;
-fourColRow = false;
-tdDoubleMobile = false;
-tdFourCTA = true;
-tdThreeCol = false;
-document.getElementById("threeCol").classList.remove("selected");
-document.getElementById("fourCTA").classList.toggle("selected");
-document.getElementById("doublemobile").classList.remove("selected");
-document.getElementById("double").classList.remove("selected");
-document.getElementById("tod").classList.remove("selected");
-document.getElementById("single").classList.remove("selected");
-document.getElementById("four").classList.remove("selected");
-document.getElementById("fourCol").classList.remove("selected");
-};
-
-function tdTripleCol(){
-miTOD = false;
-tdSingle = false;
-tdDouble = false;
-fourProdScrape = false;
-fourColRow = false;
-tdDoubleMobile = false;
-tdFourCTA = false;
-tdThreeCol = true;
-document.getElementById("threeCol").classList.toggle("selected");
-document.getElementById("fourCol").classList.remove("selected");
-document.getElementById("four").classList.remove("selected");
-document.getElementById("single").classList.remove("selected");
-document.getElementById("tod").classList.remove("selected");
-document.getElementById("double").classList.remove("selected");
-document.getElementById("doublemobile").classList.remove("selected");
-document.getElementById("fourCTA").classList.remove("selected");
-};
-
-
-function miMaker(){
-  assets = [];
-  if (miTOD === true){
-    generateMI();
-  } else if (tdSingle === true){
-    generateSingleTd();
-  } else if (fourProdScrape === true){
-    generateProductScrapes();
-  } else if (fourColRow === true){
-    generateFourColumnRows();
-  } else if (tdDouble === true){
-    generateDoubleTDs();
-  } else if (tdDoubleMobile === true){
-    generateDoubleMobileTDs();
-  } else if (tdFourCTA === true){
-    generateFourCTARow();
-  } else if (tdThreeCol === true){
-    generateThreeColumnRows();
+    assets.push(scrape4CTARow);
   };
+
+  assets = assets.join(`
+`);
+
+document.getElementById("formatted").innerHTML = assets;
+
+//clean input box
+document.getElementById("unformatted").value = "";
 };
+
 
 // updated for full bleed and td to th //
