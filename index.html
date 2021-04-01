@@ -16,13 +16,13 @@
 </header>
 
 <div>
-<button type="button" onclick="location.reload();" class="myButton">Start Over</button>
+<button type="button" onclick="location.reload(true);" class="myButton">Start Over</button>
 <br /><br />
 <input class="input" type="text" id="unformatted" placeholder="Paste MI here." class="css-input">
   <br/><br/>
   <form action="">
     <label for="row_type">Choose the type of row you want to build: </label>
-    <select name="row_type" id="row_type" onchange="miMakerSelect(value);" class="myButton">
+    <select name="row_type" id="row_type" onchange="miMakerSelect(value);" class="myButton_FF">
       <option value="">Select</option>
       <option value="tod">MI TOD Generator</option>
       <option value="tdOne">1 TD</option>
