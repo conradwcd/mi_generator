@@ -23,6 +23,8 @@ function miMakerSelect(value){
     generateThreeColumnRows();
   } else if (value === "tdQuadVisNav"){
     generateVisNavRow();
+  } else if (value === "tdQuadLastRowVisNav"){
+    generateVisNavLastRow();
   }
 };
 
@@ -488,6 +490,54 @@ for (i = 0; i < miList.length; i+=8){
               <tr>
                 <td valign="top"><a href="${miList[i+4]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+5]}" class="photo" width="160" /></a></td>
                 <td valign="top"><a href="${miList[i+6]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+7]}" class="photo" width="160" /></a></td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>`;
+
+    assets.push(scrape4CTARow);
+  };
+
+  assets = assets.join(`
+`);
+
+document.getElementById("formatted").innerHTML = assets;
+
+//clean input box
+document.getElementById("unformatted").value = "";
+copySelect();
+showCopySelectionBlock();
+};
+
+
+function generateVisNavLastRow() {
+  //reset
+  document.getElementById("formatted").innerHTML = "";
+  var assets = [];
+
+  var string = document.getElementById("unformatted").value;
+  var miList = string.match(urlRegex);
+
+for (i = 0; i < miList.length; i+=8){
+    var scrape4CTARow = `  <tr style="line-height: 1;">
+    <td valign="top">
+      <table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
+        <tr>
+          <th class="block" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="center">
+              <tr>
+                <td valign="top"><a href="${miList[i]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="160" /></a></td>
+                <td valign="top"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="160" /></a></td>
+              </tr>
+            </table>
+          </th>
+          <th class="block" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="center">
+              <tr>
+                <td valign="top"><a href="${miList[i+4]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+5]}" class="photo" width="320" /></a></td>
               </tr>
             </table>
           </th>
