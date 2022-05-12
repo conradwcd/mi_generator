@@ -220,14 +220,14 @@ for (i = 0; i < miList.length; i+=8){
             <table border="0" cellpadding="0" cellspacing="0" align="center">
               <tr>
                 <td valign="top"><a href="${miList[i]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+1]}" class="photo" width="168" /></a></td>
-                <td valign="top"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="152" /></a></td>
+                <td valign="top"><a href="${miList[i+2]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+3]}" class="photo" width="168" /></a></td>
               </tr>
             </table>
           </th>
           <th class="block" valign="top">
             <table border="0" cellpadding="0" cellspacing="0" align="center">
               <tr>
-                <td valign="top"><a href="${miList[i+4]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+5]}" class="photo" width="152" /></a></td>
+                <td valign="top"><a href="${miList[i+4]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+5]}" class="photo" width="168" /></a></td>
                 <td valign="top"><a href="${miList[i+6]}" alias="%%=v(@alias)=%%" target="_blank"><img alt="Display images to show real-time content" style="border: 0; display: block;" border="0" src="${miList[i+7]}" class="photo" width="168" /></a></td>
               </tr>
             </table>
